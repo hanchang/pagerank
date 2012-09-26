@@ -27,7 +27,12 @@ function GetPageRank($q,$host='toolbarqueries.google.com',$context=NULL) {
 	return $pr?substr(strrchr($pr, ':'), 1):false;
 }
 
-//Example usage:
+// Example usage:
 
 if (isset($_GET['q'])) { echo GetPageRank($_GET['q']); }
-//eof
+if (isset($_SERVER['argv'][1])) { 
+  echo "Checking pagerank for " . $_SERVER['argv'][1] . "\n";
+  echo GetPageRank($_SERVER['argv'][1]); 
+}
+
+// EOF
